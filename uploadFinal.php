@@ -5,7 +5,6 @@ $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 
 define("TARGET", basename($_FILES["fileToUpload"]["name"]));
-echo TARGET;
 
 if(move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir."/".TARGET)):
     $file = file($target_dir."/".TARGET, FILE_SKIP_EMPTY_LINES);
