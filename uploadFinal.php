@@ -1,4 +1,4 @@
-<?php 
+<?php
 $target_dir = "./uploads";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
@@ -23,15 +23,15 @@ $multiLayer = array();
 
 
 foreach($file as $i=>$row) {
-    
+
     $getKeyValue = str_getcsv($row, ",");
     $arrCombined = array_combine($keyIndex, $getKeyValue);
     array_push($multiLayer, $arrCombined);
     $multiLayer[$i]["file_id"] = $fileId;
-   
+
     array_push($uniqueFile, $fileId);
     array_push($uniqueParent, $arrCombined["parent_id"]);
-   
+
     array_push($uniqueArr, $arrCombined["title"]);
     $firstLetter = substr($arrCombined["file_name"],0,1);
     if ((ord(strtolower($firstLetter))-96)%2 !== 0) {
@@ -65,7 +65,7 @@ for($i = 0; $i < sizeof($uniqueFile); $i++) {
             echo '<script language="javascript">';
             echo 'alert("Error Uploading File")';
             echo '</script>';
-    
+
         }
     endif;
 
